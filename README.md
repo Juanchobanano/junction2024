@@ -1,5 +1,7 @@
 # ZeroCut: Cutting Waste, Saving Costs 💡🌱
 
+**Visit our dashboards: https://junction2024-hkfactory.streamlit.app/**
+
 ![ZeroCut Workflow](./diagrams/Software_Architecture.svg)
 
 ZeroCut is a smart solution designed to tackle food waste and overpackaging in manufacturing by optimizing the cutting and preprocessing phases in real time. With a mission to save resources and streamline production, our system leverages real-time data and machine learning for optimal efficiency.
