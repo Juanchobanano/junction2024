@@ -25,7 +25,3 @@ ZeroCut not only helps manufacturers save up to €7.5 million annually but also
 ### Get Started with ZeroCut 🚀
 
 Transform your operations and take control of waste management today! ZeroCut is ready to help your business cut costs and build a sustainable future.
-
----
-
-This summary highlights key features, benefits, and the impact of your solution while using emojis to make it more engaging and easy to scan.
