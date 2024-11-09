@@ -81,11 +81,11 @@ if all_good:
     #funny_gif_url = "./assets/thumbs-up-approve.gif"
     funny_gif_url = "https://media.tenor.com/9v5-Fa6QXOAAAAAM/hello-kitty-bow-kitty-bow.gif"
     col1, col2, col3, col4 = st.columns(4)
-    with col3:
-        st.image(funny_gif_url, width=400)
+    with col2:
+        st.image(funny_gif_url, width=600)
 else:
     #funny_gif_url = "./assets/justin-timbelake-stare.gif"
     funny_gif_url = "https://media.tenor.com/CPWZJ9HA3_YAAAAM/justin-timbelake-stare.gif"
     col1, col2, col3, col4 = st.columns(4)
-    with col3:
-        st.image(funny_gif_url, width=300)
+    with col2:
+        st.image(funny_gif_url, width=500)
