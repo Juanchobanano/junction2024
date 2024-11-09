@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import time
-
+import plotly.express as px
 
 
 # Sample sausage-like product data
@@ -48,18 +48,25 @@ weight_deviation = actual_weight - target_weight
 
 # Displaying Production Metrics
 col0, col1, col2, col3, col5 = st.columns(5)
+col0.metric("Pre-production", "✂️")
+col1.metric("Average Target Weight (kg)", f"{target_weight:.2f}")
+col2.metric("Average Actual Weight (kg)", f"{actual_weight:.2f}", delta=5.6)
+col3.metric("Weight Deviation (kg)", f"{weight_deviation:.2f}", delta=-0.5)
+col5.success("OK", icon="👍")
+
+col0, col1, col2, col3, col5 = st.columns(5)
 col0.metric("Cooking", "🍳")
 col1.metric("Average Target Weight (kg)", f"{target_weight:.2f}")
 col2.metric("Average Actual Weight (kg)", f"{actual_weight:.2f}", delta=5.6)
 col3.metric("Weight Deviation (kg)", f"{weight_deviation:.2f}", delta=-0.5)
-col5.warning("Discrepancy detected!", icon="⚠️")
+col5.success("OK", icon="👍")
 
 col0, col1, col2, col3, col5 = st.columns(5)
 col0.metric("Storage", "📥")
 col1.metric("Average Target Weight (kg)", f"{target_weight:.2f}")
 col2.metric("Average Actual Weight (kg)", f"{actual_weight:.2f}", delta=5.6)
 col3.metric("Weight Deviation (kg)", f"{weight_deviation:.2f}", delta=-0.5)
-col5.warning("Discrepancy detected!", icon="⚠️")
+col5.success("OK", icon="👍")
 
 col0, col1, col2, col3, col5 = st.columns(5)
 col0.metric("Packing", "📦")
@@ -69,5 +76,42 @@ col3.metric("Weight Deviation (kg)", f"{weight_deviation:.2f}", delta=-0.5)
 col5.warning("Discrepancy detected!", icon="⚠️")
 
 
-# Filter data based on the selected product
-df_filtered = df[df["Product_ID"] == selected_product]
+# Machine Status Section
+st.header("Machine Status Overview 🤖")
+
+# Cooking Machines Status
+st.subheader("Cooking Machines 🍳")
+cooking_machines_status = {
+    "Machine 1": "Running",
+    "Machine 2": "Idle",
+    "Machine 3": "Maintenance",
+}
+cooking_status_df = pd.DataFrame(list(cooking_machines_status.items()), columns=["Machine", "Status"])
+cooking_status_fig = px.bar(
+    cooking_status_df,
+    x="Machine",
+    y="Status",
+    color="Status",
+    title="Cooking Machines Status",
+    labels={"Status": "Status"},
+)
+st.plotly_chart(cooking_status_fig, use_container_width=True)
+
+# Cutting Machines Status
+st.subheader("Cutting Machines ✂️")
+cutting_machines_status = {
+    "Machine A": "Running",
+    "Machine B": "Idle",
+    "Machine C": "Running",
+}
+cutting_status_df = pd.DataFrame(list(cutting_machines_status.items()), columns=["Machine", "Status"])
+cutting_status_fig = px.bar(
+    cutting_status_df,
+    x="Machine",
+    y="Status",
+    color="Status",
+    title="Cutting Machines Status",
+    labels={"Status": "Status"},
+)
+st.plotly_chart(cutting_status_fig, use_container_width=True)
+
