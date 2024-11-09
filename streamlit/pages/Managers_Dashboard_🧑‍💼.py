@@ -49,7 +49,7 @@ weight_deviation = actual_weight - target_weight
 
 # Displaying Production Metrics
 col0, col1, col2, col3, col5 = st.columns(5)
-col0.metric("Stage", "")
+col0.metric("Cooking", "🍳")
 col1.metric("Average Target Weight (kg)", f"{target_weight:.2f}")
 col2.metric("Average Actual Weight (kg)", f"{actual_weight:.2f}", delta=5.6)
 col3.metric("Weight Deviation (kg)", f"{weight_deviation:.2f}", delta=-0.5)
