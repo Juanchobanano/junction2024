@@ -1,5 +1,4 @@
 import streamlit as st
-import time
 
 # Set page title
 st.set_page_config(
@@ -20,72 +19,29 @@ products = [
     {"name": "Turkey 🦃", "icon": "🦃", "grams_to_change": -12.6}
 ]
 
-# Dropdown select list for choosing a product (for manual selection, if needed)
-product_options = [product['name'] for product in products]
-selected_product_name = st.selectbox("Select a product", product_options, index=0)
 
-st.divider()
+def create_column(col, product):
+    grams_to_change = product['grams_to_change']
 
-# Find the selected product's details (either automatic or user-selected)
-selected_product = next(
-    product
-    for product in products if product["name"] == selected_product_name)
+    if grams_to_change > 0:
+        funny_gif_url = "https://media.tenor.com/CPWZJ9HA3_YAAAAM/justin-timbelake-stare.gif"
+        icon_to_show = "⬆️"
+        symbol_to_show = "+"
+    elif grams_to_change < 0:
+        icon_to_show = "⬇️"
+        funny_gif_url = "https://media.tenor.com/CPWZJ9HA3_YAAAAM/justin-timbelake-stare.gif"
+        symbol_to_show = "-"
+    else:
+        icon_to_show = "👍"
+        funny_gif_url = "https://media.tenor.com/9v5-Fa6QXOAAAAAM/hello-kitty-bow-kitty-bow.gif"
+        symbol_to_show = ""
 
-# Display selected product information
-# st.markdown(f"### **{selected_product['name']} {selected_product['icon']}**")
+    col.metric("Product", product["name"])
+    col.metric("Grams to Change", f"{grams_to_change}g {icon_to_show}", delta=symbol_to_show)
+    col.image(funny_gif_url, width=250)
 
-st.markdown(
-        f"""
-        <div style="font-size:50px; font-weight:bold; text-align:center;">
-            {selected_product['name']} {selected_product['icon']}
-        </div>
-        """,
-        unsafe_allow_html=True
-)
 
-# Grams to Increase
-grams_to_change = selected_product['grams_to_change']
-if grams_to_change == 0:
-    st.markdown(
-        f"""
-        <div style="font-size:50px; font-weight:bold; color:#6c757d; text-align:center;">
-            {0}g
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-elif grams_to_change > 0:
-
-    st.markdown(
-        f"""
-        <div style="font-size:50px; font-weight:bold; color:#28a745; text-align:center;">
-            {grams_to_change}g ⬆️
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-else:
-    st.markdown(
-        f"""
-        <div style="font-size:50px; font-weight:bold; color:#dc3545; text-align:center;">
-            {grams_to_change}g ⬇️ 
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-# Display the selected face or GIF
-all_good = (selected_product['grams_to_change'] == 0)
-if all_good:
-    # Replace with a funny GIF URL (use any GIF URL that suits your needs)
-    #  funny_gif_url = "./assets/thumbs-up-approve.gif"
-    funny_gif_url = "https://media.tenor.com/9v5-Fa6QXOAAAAAM/hello-kitty-bow-kitty-bow.gif"
-    col1, col2, col3, col4 = st.columns(4)
-    with col2:
-        st.image(funny_gif_url, width=600)
-else:
-    #  funny_gif_url = "./assets/justin-timbelake-stare.gif"
-    funny_gif_url = "https://media.tenor.com/CPWZJ9HA3_YAAAAM/justin-timbelake-stare.gif"
-    col1, col2, col3, col4 = st.columns(4)
-    with col2:
-        st.image(funny_gif_url, width=500)
+col1, col2, col3 = st.columns(3)
+create_column(col1, products[0])
+create_column(col2, products[1])
+create_column(col3, products[2])
