@@ -79,7 +79,7 @@ all_good = (selected_product['grams_to_change'] == 0)
 if all_good:
     # Replace with a funny GIF URL (use any GIF URL that suits your needs)
     #funny_gif_url = "./assets/thumbs-up-approve.gif"
-    funny_gif_url = "https://media0.giphy.com/media/dXLnSpMDt7CvzRwMa9/200w.gif?cid=6c09b952v1jfyt6kznrm5exmstf7poud63r92e0lauoc0be6&ep=v1_gifs_search&rid=200w.gif&ct=g"
+    funny_gif_url = "https://media.tenor.com/9v5-Fa6QXOAAAAAM/hello-kitty-bow-kitty-bow.gif"
     col1, col2, col3, col4 = st.columns(4)
     with col2:
         st.image(funny_gif_url, width=400)
