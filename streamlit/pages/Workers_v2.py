@@ -24,16 +24,16 @@ for product in products:
     grams_to_change = product['grams_to_change']
 
     if grams_to_change > 0:
-        funny_gif_url = "./assets/justin-timbelake-stare.gif"
+        funny_gif_url = "https://media.tenor.com/CPWZJ9HA3_YAAAAM/justin-timbelake-stare.gif"
         icon_to_show = "⬆️"
         symbol_to_show = "+"
     elif grams_to_change < 0:
         icon_to_show = "⬇️"
-        funny_gif_url = "./assets/justin-timbelake-stare.gif"
+        funny_gif_url = "https://media.tenor.com/CPWZJ9HA3_YAAAAM/justin-timbelake-stare.gif"
         symbol_to_show = "-"
     else:
         icon_to_show = "👍"
-        funny_gif_url = "./assets/thumbs-up-approve.gif"
+        funny_gif_url = "https://media.tenor.com/9v5-Fa6QXOAAAAAM/hello-kitty-bow-kitty-bow.gif"
         symbol_to_show = ""
 
     col0, col1, col2 = st.columns(3)
