@@ -52,7 +52,22 @@ col0.metric("Cooking", "🍳")
 col1.metric("Average Target Weight (kg)", f"{target_weight:.2f}")
 col2.metric("Average Actual Weight (kg)", f"{actual_weight:.2f}", delta=5.6)
 col3.metric("Weight Deviation (kg)", f"{weight_deviation:.2f}", delta=-0.5)
-col5.warning("ALERT!")
+col5.warning("Discrepancy detected!", icon="⚠️")
+
+col0, col1, col2, col3, col5 = st.columns(5)
+col0.metric("Storage", "📥")
+col1.metric("Average Target Weight (kg)", f"{target_weight:.2f}")
+col2.metric("Average Actual Weight (kg)", f"{actual_weight:.2f}", delta=5.6)
+col3.metric("Weight Deviation (kg)", f"{weight_deviation:.2f}", delta=-0.5)
+col5.warning("Discrepancy detected!", icon="⚠️")
+
+col0, col1, col2, col3, col5 = st.columns(5)
+col0.metric("Packing", "📦")
+col1.metric("Average Target Weight (kg)", f"{target_weight:.2f}")
+col2.metric("Average Actual Weight (kg)", f"{actual_weight:.2f}", delta=5.6)
+col3.metric("Weight Deviation (kg)", f"{weight_deviation:.2f}", delta=-0.5)
+col5.warning("Discrepancy detected!", icon="⚠️")
+
 
 # Filter data based on the selected product
 df_filtered = df[df["Product_ID"] == selected_product]
