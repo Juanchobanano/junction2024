@@ -4,7 +4,6 @@ import numpy as np
 import time
 import plotly.express as px
 
-
 # Sample sausage-like product data
 products = [
     {"name": "Beef 🐄", "icon": "🐄", "grams_to_change": 0},
